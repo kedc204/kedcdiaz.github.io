@@ -27,8 +27,7 @@
                         sans: ['Montserrat', 'sans-serif']
                     },
                     backgroundImage: {
-                        'hero-pattern': "linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
-                        'parallax-pattern': "url('https://images.unsplash.com/photo-1501339817309-1147665a5058?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"
+                        'hero-pattern': "linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"
                     }
                 }
             }
@@ -40,15 +39,9 @@
             position: relative;
             width: 100%;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
             height: 40vh;
             max-height: 400px;
-        }
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
         }
         .loading-dots:after {
             content: '.';
@@ -60,116 +53,121 @@
             60% { content: '...'; }
             80%, 100% { content: ''; }
         }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #C5A059;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body class="font-sans bg-crema text-carbon antialiased overflow-x-hidden">
 
-    <!-- Integración Gemini API: Sommelier IA y Guía de Preparación -->
-    
+    <!-- Navegación -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
-                <a href="#" class="font-serif text-2xl font-bold tracking-widest text-crema" id="logo-text">GENIKA</a>
+                <a href="#" class="font-serif text-2xl font-bold tracking-widest text-crema">GENIKA</a>
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#menu" class="text-crema hover:text-oro transition-colors text-sm font-medium">MENÚ</a>
                     <a href="#sommelier" class="text-crema hover:text-oro transition-colors text-sm font-medium">SOMMELIER ✨</a>
                     <a href="#analisis" class="text-crema hover:text-oro transition-colors text-sm font-medium">PERFILES</a>
-                    <a href="#contacto" class="border border-oro text-oro px-5 py-2 hover:bg-oro hover:text-carbon transition-colors text-sm font-medium">RESERVAR</a>
+                    <a href="#" class="border border-oro text-oro px-5 py-2 hover:bg-oro hover:text-carbon transition-colors text-sm font-medium">RESERVAR</a>
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Hero -->
     <header class="relative h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center">
         <div class="text-center px-4 z-10">
-            <p class="text-oro tracking-[0.3em] uppercase text-sm mb-4">Experiencia Inteligente</p>
-            <h1 class="text-5xl md:text-7xl font-serif text-crema mb-8 leading-tight">Café de Especialidad <br><span class="italic text-oro">Curado por IA</span></h1>
+            <p class="text-oro tracking-[0.3em] uppercase text-sm mb-4">Café de Especialidad</p>
+            <h1 class="text-5xl md:text-7xl font-serif text-crema mb-8 leading-tight">La Inteligencia del <br><span class="italic text-oro">Tueste Perfecto</span></h1>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="#menu" class="bg-oro text-carbon font-semibold px-8 py-4 hover:bg-crema transition-colors">VER MENÚ</a>
-                <a href="#sommelier" class="bg-transparent border border-crema text-crema font-semibold px-8 py-4 hover:bg-crema hover:text-carbon transition-colors">✨ PREGUNTAR AL SOMMELIER</a>
+                <a href="#sommelier" class="bg-transparent border border-crema text-crema font-semibold px-8 py-4 hover:bg-crema hover:text-carbon transition-colors">✨ ASISTENTE IA</a>
             </div>
         </div>
     </header>
 
-    <!-- Sección Sommelier IA -->
+    <!-- Sommelier IA -->
     <section id="sommelier" class="py-24 bg-white">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-oro font-sans tracking-widest uppercase text-sm mb-2">Asistente Inteligente</h2>
-            <h3 class="text-4xl font-serif text-carbon mb-6">Encuentra tu Café Ideal ✨</h3>
-            <p class="text-gray-600 mb-10 leading-relaxed">Describe cómo te sientes o qué sabores buscas hoy (ej: "Busco algo dulce para la tarde con notas frutales") y nuestra IA Gemini encontrará la mejor opción para ti.</p>
+            <h2 class="text-oro font-sans tracking-widest uppercase text-sm mb-2">IA Sommelier</h2>
+            <h3 class="text-4xl font-serif text-carbon mb-6">Tu Guía Sensorial Personalizada</h3>
+            <p class="text-gray-600 mb-10 leading-relaxed">¿No sabes qué elegir? Cuéntanos qué sabores te gustan o cómo va tu día, y nuestra IA encontrará la taza perfecta para ti.</p>
             
             <div class="relative max-w-2xl mx-auto">
-                <textarea id="ai-query" rows="3" class="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-oro focus:outline-none text-gray-700 bg-gray-50" placeholder="Ej: Quiero un café con mucha energía y sabor a chocolate..."></textarea>
+                <textarea id="ai-query" rows="3" class="w-full p-4 border border-gray-200 rounded-lg focus:ring-2 focus:ring-oro focus:outline-none text-gray-700 bg-gray-50 shadow-inner" placeholder="Ej: Busco algo equilibrado con notas a frutos rojos para acompañar un postre..."></textarea>
                 <button id="ask-ai-btn" class="mt-4 bg-carbon text-oro font-bold py-4 px-10 rounded-full hover:bg-cafe transition-all shadow-lg flex items-center mx-auto">
-                    <span>✨ Obtener Recomendación Inteligente</span>
+                    <span>✨ Consultar con Gemini</span>
                 </button>
             </div>
 
             <div id="ai-response-container" class="hidden mt-12 p-8 bg-crema border border-oro/20 rounded-xl text-left shadow-sm">
                 <div class="flex items-start gap-4">
-                    <div class="bg-oro p-3 rounded-full text-carbon font-bold">G</div>
+                    <div class="bg-oro p-3 rounded-full text-carbon font-bold shrink-0">G</div>
                     <div>
-                        <h4 class="font-serif text-xl text-carbon mb-2">Recomendación de Gemini</h4>
+                        <h4 class="font-serif text-xl text-carbon mb-2">Sugerencia de la Casa</h4>
                         <div id="ai-response-text" class="text-gray-700 leading-relaxed italic"></div>
-                        <div id="ai-action" class="mt-6 flex gap-3"></div>
+                        <div id="ai-action" class="mt-6"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Menú -->
     <section id="menu" class="py-24 bg-crema">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-serif text-carbon mb-4">Nuestra Selección</h2>
-                <div class="flex justify-center space-x-4 mt-8 flex-wrap gap-y-4">
-                    <button class="filter-btn active bg-carbon text-crema px-6 py-2 rounded-full text-sm" data-filter="all">TODOS</button>
-                    <button class="filter-btn border border-carbon px-6 py-2 rounded-full text-sm" data-filter="preparado">PREPARADOS</button>
-                    <button class="filter-btn border border-carbon px-6 py-2 rounded-full text-sm" data-filter="grano">EN GRANO</button>
-                </div>
+                <div class="h-1 w-20 bg-oro mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="product-grid">
-                <div class="product-card bg-white p-6 rounded-lg border border-gray-100 flex flex-col justify-between" data-category="preparado" data-id="espresso">
+                <div class="product-card bg-white p-6 rounded-lg border border-gray-100 shadow-sm flex flex-col justify-between" data-id="espresso">
                     <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=400&q=80" alt="Espresso" class="w-full h-40 object-cover mb-4 rounded">
-                    <h3 class="font-serif text-xl mb-1">Espresso Perfecto</h3>
-                    <p class="text-xs text-gray-500 mb-4">Intenso, notas a chocolate.</p>
-                    <button class="w-full border border-carbon py-2 hover:bg-carbon hover:text-crema transition-colors text-xs analyze-btn">VER PERFIL IA ✨</button>
+                    <h3 class="font-serif text-xl mb-1 text-carbon">Espresso Perfecto</h3>
+                    <p class="text-xs text-gray-500 mb-6 italic">Cuerpo denso y notas a chocolate amargo.</p>
+                    <button class="w-full border border-carbon py-2 hover:bg-carbon hover:text-crema transition-colors text-xs font-bold analyze-btn uppercase tracking-tighter">Ver Perfil IA ✨</button>
                 </div>
-                <div class="product-card bg-white p-6 rounded-lg border border-gray-100 flex flex-col justify-between" data-category="preparado" data-id="v60">
+                <div class="product-card bg-white p-6 rounded-lg border border-gray-100 shadow-sm flex flex-col justify-between" data-id="v60">
                     <img src="https://images.unsplash.com/photo-1495474472201-419b4fcb512c?auto=format&fit=crop&w=400&q=80" alt="V60" class="w-full h-40 object-cover mb-4 rounded">
-                    <h3 class="font-serif text-xl mb-1">Filtrado V60</h3>
-                    <p class="text-xs text-gray-500 mb-4">Claridad y acidez cítrica.</p>
-                    <button class="w-full border border-carbon py-2 hover:bg-carbon hover:text-crema transition-colors text-xs analyze-btn">VER PERFIL IA ✨</button>
+                    <h3 class="font-serif text-xl mb-1 text-carbon">Filtrado V60</h3>
+                    <p class="text-xs text-gray-500 mb-6 italic">Claridad excepcional y acidez cítrica.</p>
+                    <button class="w-full border border-carbon py-2 hover:bg-carbon hover:text-crema transition-colors text-xs font-bold analyze-btn uppercase tracking-tighter">Ver Perfil IA ✨</button>
                 </div>
-                <div class="product-card bg-white p-6 rounded-lg border border-gray-100 flex flex-col justify-between" data-category="grano" data-id="etiopia">
+                <div class="product-card bg-white p-6 rounded-lg border border-gray-100 shadow-sm flex flex-col justify-between" data-id="etiopia">
                     <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=400&q=80" alt="Etiopía" class="w-full h-40 object-cover mb-4 rounded">
-                    <h3 class="font-serif text-xl mb-1">Etiopía Yirgacheffe</h3>
-                    <p class="text-xs text-gray-500 mb-4">Notas florales y jazmín.</p>
-                    <button class="w-full border border-carbon py-2 hover:bg-carbon hover:text-crema transition-colors text-xs analyze-btn">VER PERFIL IA ✨</button>
+                    <h3 class="font-serif text-xl mb-1 text-carbon">Etiopía Yirgacheffe</h3>
+                    <p class="text-xs text-gray-500 mb-6 italic">Perfil floral, jazmín y té negro.</p>
+                    <button class="w-full border border-carbon py-2 hover:bg-carbon hover:text-crema transition-colors text-xs font-bold analyze-btn uppercase tracking-tighter">Ver Perfil IA ✨</button>
                 </div>
-                <div class="product-card bg-white p-6 rounded-lg border border-gray-100 flex flex-col justify-between" data-category="grano" data-id="colombia">
+                <div class="product-card bg-white p-6 rounded-lg border border-gray-100 shadow-sm flex flex-col justify-between" data-id="colombia">
                     <img src="https://images.unsplash.com/photo-1587049352847-4d45d61d00c3?auto=format&fit=crop&w=400&q=80" alt="Colombia" class="w-full h-40 object-cover mb-4 rounded">
-                    <h3 class="font-serif text-xl mb-1">Colombia Nariño</h3>
-                    <p class="text-xs text-gray-500 mb-4">Dulzor de panela y naranja.</p>
-                    <button class="w-full border border-carbon py-2 hover:bg-carbon hover:text-crema transition-colors text-xs analyze-btn">VER PERFIL IA ✨</button>
+                    <h3 class="font-serif text-xl mb-1 text-carbon">Colombia Nariño</h3>
+                    <p class="text-xs text-gray-500 mb-6 italic">Dulzor a panela y balance sedoso.</p>
+                    <button class="w-full border border-carbon py-2 hover:bg-carbon hover:text-crema transition-colors text-xs font-bold analyze-btn uppercase tracking-tighter">Ver Perfil IA ✨</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="analisis" class="py-24 bg-carbon text-crema overflow-hidden">
+    <!-- Análisis IA -->
+    <section id="analisis" class="py-24 bg-carbon text-crema">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h3 class="text-4xl font-serif mb-6" id="info-title">Perfil Sensorial Inteligente</h3>
+                    <h3 class="text-4xl font-serif mb-6" id="info-title">Laboratorio de Sabor</h3>
                     <div id="perfil-info" class="bg-cafe p-6 border-l-4 border-oro mb-6">
-                        <p class="text-sm text-gray-300 italic" id="info-desc">Selecciona un producto arriba para que la IA analice su complejidad...</p>
+                        <p class="text-sm text-gray-300 italic" id="info-desc">Selecciona un grano para iniciar el análisis molecular de sabor...</p>
                     </div>
                     <div id="ai-sensory-analysis" class="hidden">
-                        <h4 class="text-oro uppercase tracking-widest text-xs mb-4">✨ Interpretación de la IA</h4>
-                        <div id="ai-sensory-text" class="text-sm leading-relaxed text-gray-200"></div>
-                        <button id="recipe-gen-btn" class="mt-6 text-oro border border-oro/30 px-4 py-2 rounded hover:bg-oro/10 transition-all text-xs">✨ Generar Guía de Preparación</button>
+                        <h4 class="text-oro uppercase tracking-widest text-xs mb-4 font-bold">✨ Análisis de Gemini</h4>
+                        <div id="ai-sensory-text" class="text-sm leading-relaxed text-gray-200 mb-6"></div>
+                        <button id="recipe-gen-btn" class="bg-oro text-carbon px-6 py-2 rounded font-bold hover:bg-crema transition-all text-xs uppercase">Generar Guía de Preparación</button>
                     </div>
                 </div>
                 <div class="relative">
@@ -181,38 +179,42 @@
         </div>
     </section>
 
-    <div id="recipe-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-carbon/90 backdrop-blur-sm">
-        <div class="bg-crema w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl">
-            <div class="p-8 max-h-[80vh] overflow-y-auto">
-                <div class="flex justify-between items-start mb-6">
-                    <h3 class="font-serif text-3xl text-carbon" id="modal-recipe-title">Guía de Preparación ✨</h3>
-                    <button onclick="document.getElementById('recipe-modal').classList.add('hidden')" class="text-gray-400 hover:text-carbon text-2xl">&times;</button>
+    <!-- Modal Receta -->
+    <div id="recipe-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-carbon/95 backdrop-blur-md">
+        <div class="bg-crema w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl border border-oro/20">
+            <div class="p-8 max-h-[85vh] overflow-y-auto custom-scrollbar">
+                <div class="flex justify-between items-center mb-6 sticky top-0 bg-crema py-2">
+                    <h3 class="font-serif text-3xl text-carbon">Guía Maestra ✨</h3>
+                    <button onclick="document.getElementById('recipe-modal').classList.add('hidden')" class="text-gray-400 hover:text-carbon text-3xl">&times;</button>
                 </div>
-                <div id="modal-recipe-content" class="prose prose-sm text-gray-600">
-                    <div class="flex flex-col items-center py-12">
-                        <div class="loading-dots text-oro text-xl font-bold">Generando receta artesanal</div>
-                    </div>
+                <div id="modal-recipe-content" class="text-gray-700">
+                    <div class="py-12 text-center font-bold text-oro loading-dots">Codificando receta</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="bg-carbon text-gray-400 py-12 border-t border-gray-800 text-center">
-        <p class="text-xs uppercase tracking-widest">&copy; 2026 Genika Café | Desarrollado con Gemini 2.5 Flash</p>
+    <footer class="bg-carbon text-gray-500 py-12 border-t border-gray-800 text-center">
+        <p class="text-[10px] uppercase tracking-[0.2em]">&copy; 2026 GENIKA CAFÉ | IMPULSADO POR GEMINI 2.5 FLASH</p>
     </footer>
 
     <script>
+        // --- CONFIGURACIÓN DE API KEY (QUEMADA) ---
         const apiKey = "AIzaSyCfohSvidqE1sLrsldwv7qGJR19Bmg-w7A"; 
-        
-        async function callGemini(prompt, systemInstruction = "Eres un experto sommelier de café de especialidad de Genika Café.") {
+
+        async function callGemini(prompt, systemInstruction = "Eres un sommelier experto de Genika Café. Responde siempre de forma elegante y profesional en español.") {
+            // El endpoint de la API de Gemini
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
                 systemInstruction: { parts: [{ text: systemInstruction }] }
             };
 
+            // Implementación de backoff exponencial básico
             let retries = 5;
             let delay = 1000;
+
             while (retries > 0) {
                 try {
                     const response = await fetch(url, {
@@ -220,134 +222,142 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
+                    
+                    if (!response.ok) throw new Error("API Error");
+                    
                     const data = await response.json();
-                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No se pudo generar una respuesta.";
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "Lo siento, no pude procesar la solicitud.";
                 } catch (error) {
                     retries--;
-                    if (retries === 0) throw error;
+                    if (retries === 0) return "Error de conexión. Por favor, intenta de nuevo más tarde.";
                     await new Promise(r => setTimeout(r, delay));
                     delay *= 2;
                 }
             }
         }
 
-        const nav = document.getElementById('navbar');
-        window.onscroll = () => {
-            if (window.scrollY > 100) {
-                nav.classList.add('bg-carbon', 'py-3', 'shadow-xl');
-                nav.classList.remove('py-6');
-            } else {
-                nav.classList.remove('bg-carbon', 'shadow-xl');
-                nav.classList.add('py-6');
-            }
-        };
-
+        // --- LÓGICA DE NEGOCIO ---
         const coffeeData = {
-            'espresso': { title: 'Espresso Perfecto', stats: [4, 9, 5, 8, 9], base: 'Intenso, chocolateado.' },
-            'v60': { title: 'Filtrado V60', stats: [9, 3, 7, 9, 6], base: 'Brillante, floral.' },
-            'etiopia': { title: 'Etiopía Yirgacheffe', stats: [8, 3, 7, 10, 5], base: 'Té negro, jazmín.' },
-            'colombia': { title: 'Colombia Nariño', stats: [6, 6, 8, 7, 7], base: 'Panela, naranja.' }
+            'espresso': { title: 'Espresso Perfecto', stats: [4, 9, 5, 8, 9], desc: 'Intenso y potente con crema persistente.' },
+            'v60': { title: 'Filtrado V60', stats: [9, 3, 7, 9, 6], desc: 'Limpio, aromático y de cuerpo ligero.' },
+            'etiopia': { title: 'Etiopía Yirgacheffe', stats: [8, 3, 7, 10, 5], desc: 'Floral con notas a jazmín y té negro.' },
+            'colombia': { title: 'Colombia Nariño', stats: [6, 6, 8, 7, 7], desc: 'Dulzor a panela y balance sedoso.' }
         };
 
-        let currentCoffeeId = null;
+        let currentId = null;
 
+        // Inicialización del Gráfico de Radar
         const ctx = document.getElementById('flavorChart').getContext('2d');
-        let flavorChart = new Chart(ctx, {
+        const flavorChart = new Chart(ctx, {
             type: 'radar',
             data: {
                 labels: ['Acidez', 'Cuerpo', 'Dulzor', 'Aroma', 'Postgusto'],
                 datasets: [{
-                    label: 'Perfiles Genika',
+                    label: 'Perfil Sensorial',
                     data: [0,0,0,0,0],
                     backgroundColor: 'rgba(197, 160, 89, 0.4)',
                     borderColor: '#C5A059',
-                    borderWidth: 2
+                    borderWidth: 2,
+                    pointBackgroundColor: '#C5A059'
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                scales: { r: { grid: { color: '#333' }, ticks: { display: false }, min: 0, max: 10 } }
+                scales: { 
+                    r: { 
+                        angleLines: { color: '#444' },
+                        grid: { color: '#333' },
+                        pointLabels: { color: '#C5A059', font: { size: 10 } },
+                        ticks: { display: false },
+                        min: 0, max: 10 
+                    } 
+                },
+                plugins: { legend: { display: false } }
             }
         });
 
-        // Función centralizada para mostrar perfil
-        function showCoffeeProfile(id) {
+        // Actualizar perfil de café
+        function updateProfile(id) {
             const coffee = coffeeData[id];
             if (!coffee) return;
-            
-            currentCoffeeId = id;
+            currentId = id;
+
             flavorChart.data.datasets[0].data = coffee.stats;
-            flavorChart.data.datasets[0].label = coffee.title;
             flavorChart.update();
 
             document.getElementById('info-title').textContent = coffee.title;
-            document.getElementById('info-desc').textContent = coffee.base;
+            document.getElementById('info-desc').textContent = coffee.desc;
             document.getElementById('ai-sensory-analysis').classList.remove('hidden');
             
-            const analysisEl = document.getElementById('ai-sensory-text');
-            analysisEl.innerHTML = "<span class='loading-dots'>Analizando composición sensorial</span>";
+            const txt = document.getElementById('ai-sensory-text');
+            txt.innerHTML = "<span class='loading-dots text-oro'>Gemini analizando el perfil</span>";
             
             document.getElementById('analisis').scrollIntoView({ behavior: 'smooth' });
 
-            const prompt = `Analiza este café: ${coffee.title}. Sus métricas son: Acidez ${coffee.stats[0]}/10, Cuerpo ${coffee.stats[1]}/10, Dulzor ${coffee.stats[2]}/10. Describe brevemente qué esperar de este perfil.`;
-            callGemini(prompt).then(text => analysisEl.textContent = text);
+            callGemini(`Explica de forma poética y experta por qué el café ${coffee.title} tiene una puntuación de ${coffee.stats[3]}/10 en aroma y ${coffee.stats[0]}/10 en acidez. Limítate a 2 frases.`).then(res => txt.textContent = res);
         }
 
-        document.querySelectorAll('.analyze-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const id = btn.closest('.product-card').dataset.id;
-                showCoffeeProfile(id);
-            });
+        // Event listeners para botones de análisis
+        document.querySelectorAll('.analyze-btn').forEach(b => {
+            b.addEventListener('click', () => updateProfile(b.closest('.product-card').dataset.id));
         });
 
-        // Corregida la lógica del botón Sommelier
+        // Lógica del Sommelier IA
         document.getElementById('ask-ai-btn').addEventListener('click', async () => {
-            const query = document.getElementById('ai-query').value;
-            if (!query) return;
+            const q = document.getElementById('ai-query').value;
+            if (!q) return;
 
-            const container = document.getElementById('ai-response-container');
-            const textEl = document.getElementById('ai-response-text');
-            const actionEl = document.getElementById('ai-action');
+            const resCont = document.getElementById('ai-response-container');
+            const resTxt = document.getElementById('ai-response-text');
+            const resAct = document.getElementById('ai-action');
 
-            container.classList.remove('hidden');
-            textEl.innerHTML = "<span class='loading-dots'>Consultando al experto</span>";
-            actionEl.innerHTML = "";
+            resCont.classList.remove('hidden');
+            resTxt.innerHTML = "<span class='loading-dots text-oro'>El Sommelier está pensando</span>";
+            resAct.innerHTML = "";
 
-            const menuInfo = Object.entries(coffeeData).map(([id, data]) => `${id}: ${data.title}`).join(', ');
-            const prompt = `Usuario: "${query}". Elige uno de estos IDs: [espresso, v60, etiopia, colombia]. Explica tu elección brevemente. En la última línea pon solo el ID elegido.`;
+            const menuInfo = Object.entries(coffeeData).map(([id, d]) => `${id}: ${d.title}`).join(', ');
+            const prompt = `Un cliente dice: "${q}". Basándote en nuestro menú: [${menuInfo}], recomiéndale una opción. Sé muy amable y breve. En la última línea de tu respuesta escribe ÚNICAMENTE el id técnico sugerido (ej: etiopia).`;
             
-            const response = await callGemini(prompt);
-            textEl.textContent = response;
-            
-            const lines = response.trim().split('\n');
-            const recommendedId = lines[lines.length - 1].toLowerCase().trim().replace(/[^a-z0-9]/g, '');
-            
-            if (coffeeData[recommendedId]) {
+            const answer = await callGemini(prompt);
+            resTxt.textContent = answer;
+
+            // Intentar extraer el ID para el botón de acción
+            const lines = answer.toLowerCase().trim().split(/\s+/);
+            const recId = lines[lines.length - 1].replace(/[^a-z0-9]/g, '');
+
+            if (coffeeData[recId]) {
                 const btn = document.createElement('button');
-                btn.className = "bg-carbon text-crema text-xs px-4 py-2 rounded mt-2 hover:bg-oro hover:text-carbon transition-colors";
-                btn.textContent = `Ver perfil de ${coffeeData[recommendedId].title}`;
-                btn.onclick = () => {
-                    const el = document.querySelector(`[data-id="${recommendedId}"]`);
-                    if (el) {
-                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        showCoffeeProfile(recommendedId);
-                    }
-                };
-                actionEl.appendChild(btn);
+                btn.className = "mt-4 bg-carbon text-oro px-6 py-2 text-xs rounded font-bold hover:bg-oro hover:text-carbon transition-all shadow-md";
+                btn.textContent = `Ver detalles de ${coffeeData[recId].title} →`;
+                btn.onclick = () => updateProfile(recId);
+                resAct.appendChild(btn);
             }
         });
 
+        // Generación de Receta
         document.getElementById('recipe-gen-btn').addEventListener('click', async () => {
-            if (!currentCoffeeId) return;
-            const modal = document.getElementById('recipe-modal');
-            const content = document.getElementById('modal-recipe-content');
-            modal.classList.remove('hidden');
-            content.innerHTML = `<div class="py-12 text-center"><span class="loading-dots">Creando guía personalizada</span></div>`;
+            if (!currentId) return;
+            const m = document.getElementById('recipe-modal');
+            const c = document.getElementById('modal-recipe-content');
+            m.classList.remove('hidden');
+            c.innerHTML = "<div class='py-12 text-center text-oro font-bold loading-dots'>Gemini está redactando tu guía</div>";
 
-            const recipe = await callGemini(`Guía paso a paso para ${coffeeData[currentCoffeeId].title}.`);
-            content.innerHTML = `<div class="whitespace-pre-line">${recipe}</div>`;
+            const res = await callGemini(`Eres un Barista Pro. Genera una guía de preparación maestra para ${coffeeData[currentId].title}. Incluye: 1. Ratio ideal, 2. Temperatura del agua, 3. Molienda y 4. Un consejo secreto del experto.`);
+            c.innerHTML = `<div class='whitespace-pre-line leading-relaxed text-gray-800'>${res}</div>`;
         });
+
+        // Efecto scroll en Navbar
+        window.onscroll = () => {
+            const n = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                n.classList.add('bg-carbon/95', 'py-4', 'backdrop-blur-md', 'shadow-lg');
+                n.classList.remove('py-6');
+            } else {
+                n.classList.remove('bg-carbon/95', 'backdrop-blur-md', 'shadow-lg');
+                n.classList.add('py-6');
+            }
+        };
     </script>
 </body>
 </html>
